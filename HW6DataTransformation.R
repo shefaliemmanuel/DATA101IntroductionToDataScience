@@ -8,9 +8,6 @@ install.packages("tidyverse")
 library(nycflights13)
 library(tidyverse)
 
-stats::filter()
-stats::lag()
-
 #5.5.2.4
 #Find the 10 most delayed flights using a ranking function. 
 #How do you want to handle ties? Carefully read the documentation for min_rank()
@@ -27,22 +24,24 @@ flights %>% top_n(n = 10, wt = dep_delay)
 #A flight is 30 minutes early 50% of the time, and 30 minutes late 50% of the time.
 #99% of the time a flight is on time. 1% of the time it’s 2 hours late.
 #Which is more important: arrival delay or departure delay?
-
-flight_delay_summary <- group_by(flights, flight) %>% summarise(num_flights = n(),
+typical_flight_delays <- group_by(flights, flight) %>% summarise(num_flights = n(),
                                                                 fifteen_mins_early = sum(sched_arr_time - arr_time == 15)/num_flights,
                                                                 fifteen_mins_late = sum(arr_time - sched_arr_time == 15)/num_flights,
                                                                 late = sum(arr_time > sched_arr_time)/num_flights,
                                                                 early = sum(arr_time < sched_arr_time)/num_flights, 
                                                                 on_time = sum(arr_time == sched_arr_time)/num_flights,
                                                                 two_hours_late = sum(arr_time - sched_arr_time == 120)/num_flights)
-flight_delay_summary
+typical_flight_delays
 
 #Arrival delay is most important
 
 #5.7.1.2
 #Which plane (tailnum) has the worst on-time record?
+
 flights %>%
   group_by(tailnum) %>%
-  filter(all(is.na(arr_delay))) %>%
+  filter(all(is.na(arr_delay))) %>% #is.na determines if a value is missing, in this case there are 7 values missing
   tally(sort=TRUE)
+
+# I would not say 1 plan has the worst on-time record since 7 did not even show up. I would say these 7 all equally have the worst time on record.
 
