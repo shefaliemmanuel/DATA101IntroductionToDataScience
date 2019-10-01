@@ -163,7 +163,6 @@ names(res)<-c("PassengerId","Survived")
 write.csv(res,file="res.csv",row.names = F)
 
 #At this time point I want to predict survival using a decision tree model:
-#{r echo=TRUE,warning=FALSE,message=FALSE}
 model_dt<- rpart(Survived ~.,data=train1, method="class")
 rpart.plot(model_dt)
 
@@ -205,3 +204,5 @@ write.csv(res_rf,file="res_rf.csv",row.names = F)
 # Conclusion
 # The mean of the right predictions that I got on the test set is 0.76555 with the decision tree method, 0.77990 with the logistic regression model, and 0.80382 with the random forest model. 
 
+# Can we improve the results of prediction?
+# 
