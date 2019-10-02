@@ -205,4 +205,12 @@ write.csv(res_rf,file="res_rf.csv",row.names = F)
 # The mean of the right predictions that I got on the test set is 0.76555 with the decision tree method, 0.77990 with the logistic regression model, and 0.80382 with the random forest model. 
 
 # Can we improve the results of prediction?
-# 
+# The best solution seemed to be found at https://www.kaggle.com/ash316/eda-to-prediction-dietanic/comments
+
+# Some of the observations:
+# 1)Some of the common important features are Initial,Fare_cat,Pclass,Family_Size.
+# 2)The Sex feature doesn't seem to give any importance, which is shocking as we had seen earlier that Sex combined with Pclass was giving a very good differentiating factor. Sex looks to be important only in RandomForests.
+#However, we can see the feature Initial, which is at the top in many classifiers.We had already seen the positive correlation between Sex and Initial, so they both refer to the gender.
+# 3)Similarly the Pclass and Fare_cat refer to the status of the passengers and Family_Size with Alone,Parch and SibSp.
+# I have not edited my code in this file to configure this new prediction, as the assignment asked to repeat the prediction part of the tutorial and not edit it.
+
