@@ -30,10 +30,8 @@ for(i in 1:10000){
   if(switchThis == openGoatDoor){
     options=c(options,"yesSwitch")
   }
-  
-  length(which(options == "noSwitch"))
   length(which(options == "yesSwitch"))
-  
+  length(which(options == "noSwitch"))
 }
 
 # Solution came out to Yes Switch as the solution in the Data 8 Textbook had predicted.
