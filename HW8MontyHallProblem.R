@@ -44,16 +44,16 @@ gameResultsOverIterations<-function(){
     #original_choice_split <- split(games, ceiling("Guess")
     
     # split
-    #plant_weights_by_group <- with(games, split("Guess", "Revealed"))
+    #splitGames <- with(games, split("Guess", "Revealed"))
     # apply
-    #mean_plant_weights_by_group <- lapply(plant_weights_by_group)
+    #applyGameSplit <- lapply(splitGames)
     # combine
-    #unlist(mean_plant_weights_by_group)
+    #unlist(applyGameSplit)
     
     #original_choice_split <- split(games[,"Guess"], games[,"Guess"])
     #remaining_door_split <- split(games[,"Remianing"],games[,"Remianing"])
     
-    #boxplot(plant_weights_by_group, col = "lavender", notch = TRUE, varwidth = TRUE)
+    #boxplot(unlist, col = "lavender", notch = TRUE, varwidth = TRUE)
     #sapply(games, length)
     #sapply(games, mean)
   }
