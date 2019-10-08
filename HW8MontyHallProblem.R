@@ -7,13 +7,6 @@
 # http://www.bodowinter.com/tutorial/bw_doodling_monty_hall.pdf
 # https://www.inferentialthinking.com/chapters/09/4/Monty_Hall_Problem.html
 
-install.packages("ggplot2")
-install.packages("dplyr")
-
-library(ggplot2)
-library(dplyr)
-
-
 goats <- c('first goat', 'second goat')
 
 other_goat<- function(x){
@@ -46,17 +39,23 @@ gameResultsOverIterations<-function(){
   
   for(i in 1:10000){
     
-    #games.append(montyHallGame())
     games <- append(games, montyHallGame(), after = length(games))
     
-    #games %>% group_by('Guess')
-    #original_choice <- split(games,Guess)
+    #original_choice_split <- split(games, ceiling("Guess")
     
-    # remaining_door <- games %>% group_by('Remaining')
+    # split
+    #plant_weights_by_group <- with(games, split("Guess", "Revealed"))
+    # apply
+    #mean_plant_weights_by_group <- lapply(plant_weights_by_group)
+    # combine
+    #unlist(mean_plant_weights_by_group)
     
-    #joined <- original_choice.join('Guess', remaining_door, 'Remaining')
+    #original_choice_split <- split(games[,"Guess"], games[,"Guess"])
+    #remaining_door_split <- split(games[,"Remianing"],games[,"Remianing"])
     
-    #combined <- joined.relabeled(0, 'Item').relabeled(1, 'Original Door').relabeled(2, 'Remaining Door')
+    #boxplot(plant_weights_by_group, col = "lavender", notch = TRUE, varwidth = TRUE)
+    #sapply(games, length)
+    #sapply(games, mean)
   }
   print(games)
 }
