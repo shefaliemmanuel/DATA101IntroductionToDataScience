@@ -7,6 +7,12 @@
 # http://www.bodowinter.com/tutorial/bw_doodling_monty_hall.pdf
 # https://www.inferentialthinking.com/chapters/09/4/Monty_Hall_Problem.html
 
+install.packages("ggplot2")
+install.packages("dplyr")
+
+library(ggplot2)
+library(dplyr)
+
 
 goats <- c('first goat', 'second goat')
 
@@ -40,17 +46,18 @@ gameResultsOverIterations<-function(){
   
   for(i in 1:10000){
     
-    games.append(montyHallGame())
+    #games.append(montyHallGame())
+    games <- append(games, montyHallGame(), after = length(games))
     
-    original_choice <- games.group('Guess')
+    original_choice <- games %>% group_by('Guess')
     
-    remaining_door <- games.group('Remaining')
+    remaining_door <- games %>% group_by('Remaining')
     
-    joined <- original_choice.join('Guess', remaining_door, 'Remaining')
+    #joined <- original_choice.join('Guess', remaining_door, 'Remaining')
     
-    combined <- joined.relabeled(0, 'Item').relabeled(1, 'Original Door').relabeled(2, 'Remaining Door')
-    
+    #combined <- joined.relabeled(0, 'Item').relabeled(1, 'Original Door').relabeled(2, 'Remaining Door')
   }
+  print(games)
 }
 
 gameResultsOverIterations()
