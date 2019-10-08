@@ -49,9 +49,10 @@ gameResultsOverIterations<-function(){
     #games.append(montyHallGame())
     games <- append(games, montyHallGame(), after = length(games))
     
-    original_choice <- games %>% group_by('Guess')
+    #games %>% group_by('Guess')
+    #original_choice <- split(games,Guess)
     
-    remaining_door <- games %>% group_by('Remaining')
+    # remaining_door <- games %>% group_by('Remaining')
     
     #joined <- original_choice.join('Guess', remaining_door, 'Remaining')
     
