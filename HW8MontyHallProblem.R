@@ -36,22 +36,17 @@ montyHallGame<-function(){
 gameResultsOverIterations<-function(){
   
   games <- c("Guess","Revealed","Remaining")
+  #row.names(df) <- gamesName
   
   for(i in 1:10000){
     
     games <- append(games, montyHallGame(), after = length(games))
     
-    #original_choice_split <- split(games, ceiling("Guess")
+    #guessClmn <- data.frame(do.call(rbind, strsplit(games, "Guess", fixed=TRUE)))
+    #boxplot of # of times car, first goat, and second goat were selected
     
-    # split
-    #splitGames <- with(games, split("Guess", "Revealed"))
-    # apply
-    #applyGameSplit <- lapply(splitGames)
-    # combine
-    #unlist(applyGameSplit)
-    
-    #original_choice_split <- split(games[,"Guess"], games[,"Guess"])
-    #remaining_door_split <- split(games[,"Remianing"],games[,"Remianing"])
+    #revealedCLMN <- data.frame(do.call(rbind, strsplit(games, "Revealed", fixed=TRUE)))
+    #boxplot of # of times car, first goat, and second goat were selected
     
     #boxplot(unlist, col = "lavender", notch = TRUE, varwidth = TRUE)
     #sapply(games, length)
@@ -59,7 +54,6 @@ gameResultsOverIterations<-function(){
   }
   print(games)
 }
-
 gameResultsOverIterations()
 
 # Solution came out to Yes Switch as the solution in the Data 8 Textbook had predicted.
