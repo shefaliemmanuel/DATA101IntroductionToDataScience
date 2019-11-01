@@ -14,7 +14,10 @@ print(x)
 
 #option number 2
 x = np.zeros((8,8),dtype=int) #if you dont have the data type as an interger, it will print with .
+
+# Slice from index 1 and continue to keep appending 2 and fill all columns with 1 starting from index 0 to keep appending 2
 x[1::2,::2]=1
+# Slice from index 0 and continue to keep appending 2 and fill all columns with 1 starting from index 1 to keep appending 2
 x[::2,1::2]=1
 
 print("Array = ")
