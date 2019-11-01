@@ -35,4 +35,5 @@ print(x)
 #option number 4
 
 x = np.tile(np.array([[0,1],[1,0]]),(4,4))
+print("Array = ")
 print(x)
